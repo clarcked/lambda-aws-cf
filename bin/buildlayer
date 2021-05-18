@@ -1,0 +1,5 @@
+#!/bin/bash
+LAYER_PATH="$(pwd)/layers/spv/python"
+SOURCE_PATH="$(pwd)/spv"
+
+rm -rf "$LAYER_PATH/spv" && cd "$SOURCE_PATH" || exit && cp -r "." "$LAYER_PATH"

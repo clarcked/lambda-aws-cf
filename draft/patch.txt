@@ -1,0 +1,4 @@
+# Patch
+    # if "operationName" not in event["requestContext"]:
+    #     event["requestContext"]["operationName"] = event["queryStringParameters"]["operationName"]
+    # Patch

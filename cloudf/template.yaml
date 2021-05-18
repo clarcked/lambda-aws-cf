@@ -1,0 +1,84 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Transform: AWS::Serverless-2016-10-31
+Description: Api Consulta Resumenes sam Template
+Globals:
+    Function:
+        Timeout: 120
+Parameters:
+    Account:
+        Type: String
+        Description: AWS Account
+    Environment:
+        Type: String
+        Description: Environment
+Resources:
+    ConsultaResumenesApi:
+        Type: AWS::Serverless::Api
+        Properties:
+            Name: !Join ["-", [!Ref Account, !Ref Environment, "api", "swagger"]]
+            DefinitionBody:
+                Fn::Transform:
+                    Name: AWS::Include
+                    Parameters:
+                        Location: ./swagger.yaml
+            StageName: !Join ["-", ["stage", !Ref Environment]]
+            BinaryMediaTypes:
+                - application~1pdf
+                - application~1json
+                - text~1html
+    spvPoCConsultaResumen:
+        Type: AWS::Serverless::Function
+        Properties:
+            FunctionName: spvPoCConsulta
+            CodeUri: ../function/dev
+            Handler: lambda_function.lambda_handler
+            Runtime: python3.8
+            Role:
+                Fn::ImportValue: !Join ["-", [!Ref Account, !Ref Environment, "LambdaResumenesRoleARN"]]
+            Events:
+                ConsultaResumenes:
+                    Type: Api
+                    Properties:
+                        Path: /cuentas-credito/{id}/resumenes/{fecha}
+                        Method: "POST"
+                        RestApiId: !Ref ConsultaResumenesApi
+                        Auth:
+                            ApiKeyRequired: true # no te olvides de ponerlo True
+            Environment:
+                Variables:
+                    FONTCONFIG_PATH: fonts
+                    LD_LIBRARY_PATH: lib
+                    WKHTML2PDF_PATH: bin/wkhtmltopdf
+                    S3_BUCKET_JSON: edn-s3-predev-bucket-resumenes-json
+                    S3_BUCKET_PDF: edn-s3-predev-bucket-resumenes-pdf
+                    S3_BUCKET_DEPLOY: edn-s3-demo-bucket-resumenes-deploys
+                    RESUMEN_EXPIRA: "3600" # expresado en segundos
+                    REGION: !Ref "AWS::Region"
+            Layers:
+                - !Ref SpvLayer
+                - !Ref ConsultaLayer
+    ConsultaLayer:
+        Type: AWS::Serverless::LayerVersion
+        Properties:
+            LayerName: consulta_layer
+            Description: Common Dependencies para la function consulta
+            ContentUri: ../layers/main
+            CompatibleRuntimes:
+                - python3.8
+    SpvLayer:
+        Type: AWS::Serverless::LayerVersion
+        Properties:
+            LayerName: spv_layer
+            Description: Dependencies para la spv tarjetas
+            ContentUri: ../layers/spv
+            CompatibleRuntimes:
+                - python3.8
+    ConfigLambdaPermission:
+        Type: "AWS::Lambda::Permission"
+        DependsOn:
+            - ConsultaResumenesApi
+            - spvPoCConsultaResumen
+        Properties:
+            Action: lambda:InvokeFunction
+            FunctionName: !Ref spvPoCConsultaResumen
+            Principal: apigateway.amazonaws.com

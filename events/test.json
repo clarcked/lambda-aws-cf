@@ -1,0 +1,12 @@
+{
+  "queryStringParameters": {
+    "operationName": "getResumenPorFecha"
+  },
+  "pathParameters": {
+    "id": "0905570471",
+    "fecha": "09-20"
+  },
+  "requestContext": {
+    "operationName": "getResumenPDF"
+  }
+}

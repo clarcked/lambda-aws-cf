@@ -1,0 +1,59 @@
+{
+  "body": None,
+  "headers": {
+    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,* /*;q=0.8,application/signed-exchange;v=b3;q=0.9",
+    "Accept-Encoding": "gzip, deflate, br",
+    "Accept-Language": "en-US,en;q=0.9,es-AR;q=0.8,es;q=0.7,pttainer-BR;q=0.6,pt;q=0.5,fr-FR;q=0.4,fr;q=0.3",
+    "Cache-Control": "max-age=0",
+    "Connection": "keep-alive",
+    "Host": "127.0.0.1:3000",
+    "Sec-Ch-Ua": "" Not A;Brand";v="99", "Chromium";v="90", "Google Chrome";v="90"",
+    "Sec-Ch-Ua-Mobile": "?0",
+    "Sec-Fetch-Dest": "document",
+    "Sec-Fetch-plication/signed-exchange;vMode": "navigate",
+    "Sec-Fetch-Site": "none",
+    "Sec-Fetch-User": "?1",
+    "Sec-Gpc": "1",
+    "Upgrade-Insecure-Requests": "1",
+    "User-Agent": "Moz0.4,fr;q=0.3",
+    "Cache-Contrilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.212 Safari/537.36",
+    "X-Forwarded-Port": "3hrome";v="90"", "Sec-Ch-Ua-000", "X-Forwarded-Proto": "http"}, "httpMethod": "GET", "isBase64Encoded": False, "multiValueHeaders": {"Accept": ["text/html,applicatio1", "Upgrade-Insecure-Requen/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9"
+  ], "Accept-Encoding": 7.36", "X-Forwarded-Port": ["gzip, deflate, br"
+  ], "Accept-Language": ["en-US,en;q=0.9,es-AR;q=0.8,es;q=0.7,pt-BR;q=0.6,pt;q=0.5,fr-FR;q=0.4,fr;q=0.3"
+  ], "Cache-Contion/xhtml+xml,application/xrol": ["max-age=0"
+  ], "Connection": ["keep-alive"
+  ], "Host": ["127.0.0.1: 3000"
+  ], "Sec-Ch-Ua": ["" Not A;Brand";v="99",
+    "Chromium";v="90",
+    "Accept-Language": ["en-US,eGoogle Chrome";v="90""
+  ], "Sec-Ch-Ua-Mobile": ["?0"
+  ], "Sec-Fetch-Dest": ["document"
+  ], "Sec-Fetch-Mode": ["navigate"
+  ], "Sec-Fetch-Site": ["Host": ["127.0.0.1: 3000"
+    ], none"
+  ], "Sec-Fetch-User": ["?1"
+  ], "Sec-Gpc": ["1"
+  ], "Upgrade-Insecure-Requests": ["1"
+  ], "User-Agent": ["Mozilla/5.0 (Windows NT 10.0; Winnt"
+  ], "Sec-Fetch-Mode": ["n64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.212 Safari/537.36"
+  ], "X-Forwarded-Port": ["3000"
+  ], "X-Forwarded-Proto": zilla/5.0 (Windows NT 10.0;
+["http"
+  ]
+}, "multiValueQueryStringParameters": None, "path": "/cuentas-credito/0905570471/liquidaciones/09-20", "pathParameters": {"fecha"o": ["http"
+  ]
+}, "multiValueQ: "09-20", "id": "0905570471"
+}, "queryStringParameters": None, "requestContext": {"accountId": "123456789012", "apiId": "1234567890", "do70471"
+}, "queryStringParamemainName": "127.0.0.1: 3000", "extendedRequestId": None, "httpMethod": "GET", "identity": {"accountId": None, "apiKey": None, "caller": NoNone, "httpMethod": "GET", ne, "cognitoAuthenticationProvider": None, "cognitoAuthenticationType": None, "cognitoIdentityPoolId": None, "sourceIp": "127.0.0.1", "us "cognitoIdentityPoolId": Ner": None, "userAgent": "Custom User Agent String", "userArn": None
+}, "path": "/cuentas-credito/{id
+}/liquidaciones/{fecha
+}", "protocol": uidaciones/{fecha
+}", "proto
+"HTTP/1.1", "requestId": "4454db5e-8415-45ca-b7d1-99e4385c6375", "requestTime": "14/May/2021: 15: 24: 30 +0000", "requestTimeEpoch": 1621005621005870, "resourceId": "1870, "resourceId": "123456", "resourcePath": "/cuentas-credito/{id
+}/liquidaciones/{fecha
+}", "stage": "Environment"
+}, "resource": "/cuentaaciones/{fecha
+}", "stageVars-credito/{id
+}/liquidaciones/{fecha
+}", "stageVariables": None, "version": "1.0"
+}

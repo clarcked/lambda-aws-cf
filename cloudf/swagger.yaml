@@ -1,0 +1,57 @@
+swagger: "2.0"
+info:
+    description: "Consulta de resumenes de tarjeta de credito."
+    title: "API Consulta resumenes de tarjeta"
+    version: "1.0.0"
+schemes:
+    - "https"
+paths:
+    /cuentas-credito/{id}/resumenes/{fecha}:
+        post:
+            tags:
+                - Liquidaciones
+            summary: Consulta de liquidacion por ID CC
+            description: Consulta de la liquidacion de una Cuenta-Credito filtrada por el ID de la Cuenta-Credito y Año y mes.
+            operationId: getResumenPorFecha
+            produces:
+                - "application/json"
+            parameters:
+                - name: "id"
+                  in: "path"
+                  description: "ID to return"
+                  required: true
+                  type: "integer"
+                  format: "int64"
+                - name: "fecha"
+                  in: "path"
+                  description: "IDto return"
+                  required: true
+                  type: "integer"
+                  format: "int64"
+            responses:
+                "200":
+                    description: "Successful operation"
+                    schema:
+                        $ref: "#/definitions/LiquidacionVigenteResource"
+                "400":
+                    description: "Invalid ID supplied"
+                "404":
+                    description: "Item not found"
+                "500":
+                    description: Internal Server Error
+            x-amazon-apigateway-integration:
+                uri:
+                    Fn::Sub: "arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${spvPoCConsultaResumen.Arn}/invocations"
+                httpMethod: "POST"
+                type: "aws_proxy"
+definitions:
+    LiquidacionVigenteResource:
+        type: object
+        properties:
+            fecha_cierre:
+                type: string
+                description: Fecha de cierre
+            fecha_vencimiento:
+                type: string
+                description: Fecha de vencimiento
+        title: LiquidacionVigenteResource

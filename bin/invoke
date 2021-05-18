@@ -1,0 +1,11 @@
+#!/bin/bash
+ENV="demo"
+AWS_ACCOUNT="edn"
+AWS_PROFILE="default"
+PRODUCT="ResumenTC"
+OWNER="ExperimentacionNegocio"
+COST_CENTER="99999"
+STACK=$AWS_ACCOUNT-$ENV-api-consulta
+BUCKET=$AWS_ACCOUNT-s3-$ENV-resumenes-deploys
+
+"bin/buildlayer" && sam build --template "$(pwd)/cloudf/template.yaml" --profile $AWS_PROFILE --use-container && sam local invoke --profile $AWS_PROFILE --event "$(pwd)/events/test.json"
