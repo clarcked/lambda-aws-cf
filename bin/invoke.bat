@@ -9,5 +9,4 @@ set STACK=%AWS_ACCOUNT%-%ENV%-api-consulta
 @REM set BUCKET=%AWS_ACCOUNT%-s3-%ENV%-resumenes-deploys
 set BUCKET="spvresumen"
 
-
-sam build --template "%cd%/cloudf/template.yaml" --profile %AWS_PROFILE% --use-container && sam local invoke --profile %AWS_PROFILE% --event %cd%/events/test.json
+call bin/layer && sam build --template "%cd%/cloudf/template.yaml" --profile %AWS_PROFILE% --use-container && sam local invoke --profile %AWS_PROFILE% --event %cd%/events/test.json

@@ -1,8 +1,12 @@
+import logging
+
+
 class ConsultaRequest:
     def __init__(self, event) -> None:
         self.query = event["queryStringParameters"]
         self.params = event["pathParameters"]
         self.operation = event["requestContext"]["operationName"]
+        self.logger = logging.getLogger()
 
     def getOperation(self):
         return self.operation

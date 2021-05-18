@@ -9,4 +9,4 @@ STACK=$AWS_ACCOUNT-$ENV-api-consulta
 BUCKET=$AWS_ACCOUNT-s3-$ENV-resumenes-deploys
 
 
-"bin/buildlayer" && sam build --template "$(pwd)/cloudf/template.yaml" --profile $AWS_PROFILE --use-container && sam local start-api --profile $AWS_PROFILE
+"bin/layer" && sam build --template "$(pwd)/cloudf/template.yaml" --profile $AWS_PROFILE --use-container && sam local start-api --profile $AWS_PROFILE

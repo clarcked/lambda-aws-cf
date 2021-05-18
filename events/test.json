@@ -7,6 +7,6 @@
     "fecha": "09-20"
   },
   "requestContext": {
-    "operationName": "getResumenPDF"
+    "operationName": "getResumenPorFecha"
   }
 }

@@ -17,7 +17,8 @@ class ConsultaRouter:
         }
 
     def getRequest(self) -> ConsultaRequest:
-        return self.request
+        self.self_request = self.request
+        return self.self_request
 
-    def getController(self) -> ConsultaController:
-        return self.operations[self.request.getOperation()](self.request)
+    def getController(self, mapkey=[]) -> ConsultaController:
+        return self.operations[self.request.getOperation()](self.request, mapkey)

@@ -10,4 +10,4 @@ set STACK=%AWS_ACCOUNT%-%ENV%-api-consulta
 set BUCKET="spvresumen"
 
 
-sam build --template "%cd%/cloudf/template.yaml" --profile %AWS_PROFILE% --use-container && sam local start-api --profile %AWS_PROFILE%
+call bin/layer && sam build --template "%cd%/cloudf/template.yaml" --profile %AWS_PROFILE% --use-container && sam local start-api --profile %AWS_PROFILE%
