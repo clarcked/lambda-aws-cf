@@ -14,8 +14,8 @@ class HTMLController(JSONController):
 
     def resolveHTML(self):
         data = self.resolveJsonFromBucket()
-        # code = data['detalle_cuenta'][1]["pago"]["codigo_de_barras_cabecera"]
-        data["barcode"] = Generator.genCode39("00000000")
+        code = data['detalle_cuenta'][1]["pago"]["codigo_de_barras_cabecera"]
+        data["barcode"] = Generator.genCode39(code)
         return View(self.request, context=data).render()
 
     def onResolve(self):
