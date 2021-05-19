@@ -3,10 +3,10 @@
     "operationName": "getResumenPorFecha"
   },
   "pathParameters": {
-    "id": "0905570471",
-    "fecha": "09-20"
+    "id": "0845540196",
+    "fecha": "202009"
   },
   "requestContext": {
-    "operationName": "getResumenPorFecha"
+    "operationName": "getResumenURL"
   }
 }

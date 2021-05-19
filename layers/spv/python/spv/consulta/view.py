@@ -18,7 +18,6 @@ class View:
     def render(self) -> str:
         file = open(self.name)
         t = Template(file.read())
-        print(self.context)
         rendered = t.render(self.context)
         file.close()
         self.rendered = rendered

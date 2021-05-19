@@ -3,7 +3,8 @@ import json
 from spv.consulta.controllers.controller import ConsultaController
 from spv.consulta.request import ConsultaRequest
 from spv.utils.utils import hashmap
-
+from spv.dynamo.dynamo import Dynamo
+from spv.s3.jsonb import JSONBucket
 
 class JSONController(ConsultaController):
     def __init__(self, request: ConsultaRequest, mapkeys=[]):
@@ -13,26 +14,14 @@ class JSONController(ConsultaController):
             "getResumenPorCuenta": self.getResumenPorCuenta
         }
         self.setContentType("application/json")
+        self.dynamo = Dynamo()
+        self.jsonbucket = JSONBucket()
 
     def getResumenPorCuenta(self):
-        return {
-            "fecha_cierre_actual": "value fecha_cierre_actual",
-            "fecha_cierre_anterior": "value fecha_cierre_actual",
-            "saldos_anterior": "value saldos_anterior",
-            "saldos_actual": "value saldos_actual",
-            "fecha_cierre_actual": "value fecha_cierre_actual",
-            "fecha_cierre_anterior": "value fecha_cierre_actual",
-            "saldos_anterior": "value saldos_anterior",
-            "saldos_actual": "value saldos_actual"
-        }
+        return self.dynamo.query_id(int(self.request.getParam("id")))
 
     def getResumenPorFecha(self):
-        return {
-            "fecha_cierre_actual": "value fecha_cierre_actual",
-            "fecha_cierre_anterior": "value fecha_cierre_actual",
-            "saldos_anterior": "value saldos_anterior",
-            "saldos_actual": "value saldos_actual"
-        }
+        return self.dynamo.query_fecha(int(self.request.getParam("id")),int(self.request.getParam("fecha")))
 
     def resolveJsonFromBucket(self):
         data = {
@@ -50,9 +39,9 @@ class JSONController(ConsultaController):
             "aviso": "value aviso",
             "saldos_actual": "value saldos_actual"
         }
-
+        data = self.jsonbucket.get(self.request.jsonKey())
         return hashmap(self.mapkeys, data)
 
     def onResolve(self):
         data = self.actions[self.request.getOperation()]()
-        self.setBody(json.dumps(data))
+        self.setBody(data)
