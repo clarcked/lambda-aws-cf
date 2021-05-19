@@ -1,6 +1,6 @@
-def hashmap(keys, args):
-    sanitized = {}
-    for index in args:
+def hashmap(keys, obj):
+    mapped = {}
+    for index in obj:
         if index in keys:
-            sanitized[index] = args[index]
-    return sanitized
+            mapped[index] = obj[index]
+    return mapped

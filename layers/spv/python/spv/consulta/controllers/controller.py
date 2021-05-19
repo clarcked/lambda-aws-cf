@@ -1,10 +1,11 @@
 from spv.consulta.request import ConsultaRequest
 
+
 class ConsultaController:
     def __init__(self, request: ConsultaRequest, mapkeys=[]):
         self.request = request
-        self.logger = request.logger
         self.mapkeys = mapkeys
+        self.actions = {}
         self.response = {
             "statusCode": 200,
             "headers": {

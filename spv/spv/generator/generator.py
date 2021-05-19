@@ -8,7 +8,11 @@ from barcode.writer import ImageWriter
 
 
 class Generator:
-    def genCode39(self, code):
+    def __init__(self):
+        pass
+
+    @staticmethod
+    def genCode39(code):
         barcode = ""
         try:
             io = BytesIO()
@@ -26,7 +30,8 @@ class Generator:
             print(e)
         return barcode
 
-    def genPDF(self, template, wkhtml):
+    @staticmethod
+    def genPDF(template, wkhtml):
         pdf = ""
         try:
             pdfkit_options = {

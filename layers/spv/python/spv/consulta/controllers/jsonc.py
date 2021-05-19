@@ -24,21 +24,6 @@ class JSONController(ConsultaController):
         return self.dynamo.query_fecha(int(self.request.getParam("id")),int(self.request.getParam("fecha")))
 
     def resolveJsonFromBucket(self):
-        data = {
-            "detalle_cuenta": "value detalle_cuenta",
-            "movimientos_generales": "value movimientos_generales",
-            "movimientos_totales": "value movimientos_totales",
-            "fecha_cierre_actual": "value fecha_cierre_actual",
-            "fecha_cierre_anterior": "value fecha_cierre_actual",
-            "saldos_anterior": "value saldos_anterior",
-            "saldos_actual": "value saldos_actual",
-            "fecha_cierre_actual": "value fecha_cierre_actual",
-            "fecha_cierre_anterior": "value fecha_cierre_actual",
-            "saldos_anterior": "value saldos_anterior",
-            "descripcion_debito_automatico": "value descripcion_debito_automatico",
-            "aviso": "value aviso",
-            "saldos_actual": "value saldos_actual"
-        }
         data = self.jsonbucket.get(self.request.jsonKey())
         return hashmap(self.mapkeys, data)
 

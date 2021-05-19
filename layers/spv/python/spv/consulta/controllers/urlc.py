@@ -8,9 +8,16 @@ class URLController(ConsultaController):
         super().__init__(request, mapkeys)
         self.setContentType("text/html")
         self.pdfbucket = PDFBucket()
+        self.actions = {
+            "getResumenURL": self.resolveURL
+        }
+
+    def resolveURL(self):
+        data = self.request.params
+        data["expiration"] = self.pdfbucket.expiration
+        data["url"] = self.pdfbucket.sign("descarga.pdf")
+        return data
 
     def onResolve(self):
-        presigned = self.pdfbucket.sign("descarga.pdf");
-        print(presigned)
-        self.setBody(presigned)
-
+        data = self.actions[self.request.getOperation()]()
+        self.setBody(data)

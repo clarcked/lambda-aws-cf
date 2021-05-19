@@ -8,14 +8,16 @@ class HTMLController(JSONController):
     def __init__(self, request: ConsultaRequest, mapkeys=[]):
         super().__init__(request, mapkeys)
         self.setContentType("text/html")
-        self.generator = Generator()
-
+        self.actions = {
+            "getResumenHTML": self.resolveHTML
+        }
 
     def resolveHTML(self):
         data = self.resolveJsonFromBucket()
-        data["barcode"] = self.generator.genCode39("00000000")
-        view = View(self.request, context=data)
-        return view.render()
+        # code = data['detalle_cuenta'][1]["pago"]["codigo_de_barras_cabecera"]
+        data["barcode"] = Generator.genCode39("00000000")
+        return View(self.request, context=data).render()
 
     def onResolve(self):
-        self.setBody(self.resolveHTML())
+        data = self.actions[self.request.getOperation()]()
+        self.setBody(data)
