@@ -3,7 +3,7 @@ import os
 
 
 class View:
-    def __init__(self, request, context={}) -> None:
+    def __init__(self, request, context) -> None:
         self.req = request
         self.name = "template.html"
         self.context = context
@@ -18,7 +18,7 @@ class View:
     def render(self) -> str:
         file = open(self.name)
         t = Template(file.read())
-        print("view context :{}".format(self.context))
+        print(self.context)
         rendered = t.render(self.context)
         file.close()
         self.rendered = rendered

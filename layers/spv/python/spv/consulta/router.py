@@ -11,6 +11,7 @@ class ConsultaRouter:
         self.request: ConsultaRequest = request
         self.operations = {
             "getResumenPorFecha": JSONController,
+            "getResumenPorCuenta": JSONController,
             "getResumenHTML": HTMLController,
             "getResumenPDF": PDFController,
             "getResumenURL": URLController

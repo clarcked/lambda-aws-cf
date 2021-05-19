@@ -6,6 +6,14 @@ if "__main__" == __name__:
         "descripcion_debito_automatico": "value descripcion_debito_automatico",
         "aviso": "value aviso",
     }
-    mapkeys = ["detalle_cuenta", "aviso"]
-    result = list(map(lambda x: data[x], mapkeys))
+    mapkeys = ["detalle_cuenta", "avisox", "other", "movimientos_totales"]
+
+    def sanitize(keys, args):
+        sanitized = {}
+        for index in args:
+            if index in keys:
+                sanitized[index] = args[index]
+        return sanitized
+
+    result = sanitize(mapkeys, data)
     print(result)

@@ -8,16 +8,18 @@ from barcode.writer import ImageWriter
 
 
 class Generator:
-    def __init__(self) -> None:
-        pass
-
     def genCode39(self, code):
         barcode = ""
         try:
             io = BytesIO()
             code = re.sub(' +', ' ', code)
             Code39(code, writer=ImageWriter(format="png")).write(io, {
-                "module_width": 0.05, "module_height": 4, "font_size": 6, "text_distance": 1, "quiet_zone": 3})
+                "module_width": 0.05,
+                "module_height": 4,
+                "font_size": 6,
+                "text_distance": 1,
+                "quiet_zone": 3
+            })
             b64 = base64.b64encode(io.getvalue())
             barcode = b64.decode("utf-8")
         except IOError as e:
