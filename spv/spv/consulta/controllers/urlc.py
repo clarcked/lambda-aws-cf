@@ -6,10 +6,11 @@ from spv.s3.pdfb import PDFBucket
 class URLController(ConsultaController):
     def __init__(self, request: ConsultaRequest, mapkeys=[]):
         super().__init__(request, mapkeys)
-        self.setContentType("text/html")
+        self.setContentType("application/json")
         self.pdfbucket = PDFBucket()
         self.actions = {
-            "getResumenURL": self.resolveURL
+            "getResumenURL": self.resolveURL,
+            "getLiquidacionURL": self.resolveURL,
         }
 
     def resolveURL(self):

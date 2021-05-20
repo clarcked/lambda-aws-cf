@@ -11,7 +11,9 @@ class JSONController(ConsultaController):
         super().__init__(request, mapkeys)
         self.actions = {
             "getResumenPorFecha": self.getResumenPorFecha,
-            "getResumenPorCuenta": self.getResumenPorCuenta
+            "getResumenPorCuenta": self.getResumenPorCuenta,
+            "getLiquidacionPorFecha": self.getResumenPorFecha,
+            "getLiquidacionesPorCuenta": self.getResumenPorCuenta
         }
         self.setContentType("application/json")
         self.dynamo = Dynamo()

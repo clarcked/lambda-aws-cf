@@ -39,8 +39,8 @@ Resources:
                 ConsultaResumenes:
                     Type: Api
                     Properties:
-                        Path: /cuentas-credito/{id}/resumenes/{fecha}
-                        Method: "POST"
+                        Path: /cuentas-credito/{id}/liquidaciones/{fecha}
+                        Method: "GET"
                         RestApiId: !Ref ConsultaResumenesApi
                         Auth:
                             ApiKeyRequired: true # no te olvides de ponerlo True

@@ -9,7 +9,8 @@ class HTMLController(JSONController):
         super().__init__(request, mapkeys)
         self.setContentType("text/html")
         self.actions = {
-            "getResumenHTML": self.resolveHTML
+            "getResumenHTML": self.resolveHTML,
+            "getLiquidacionHTML": self.resolveHTML,
         }
 
     def resolveHTML(self):

@@ -14,12 +14,18 @@ class ConsultaRouter:
             "getResumenPorCuenta": JSONController,
             "getResumenHTML": HTMLController,
             "getResumenPDF": PDFController,
-            "getResumenURL": URLController
+            "getResumenURL": URLController,
+
+            "getLiquidacionesPorCuenta": JSONController,
+            "getLiquidacionPorFecha": JSONController,
+            "getLiquidacionPDF": PDFController,
+            "getLiquidacionHTML": HTMLController,
+            "getLiquidacionURL": URLController,
         }
 
     def getRequest(self) -> ConsultaRequest:
         self.self_request = self.request
         return self.self_request
 
-    def getController(self, mapkey=[]) -> ConsultaController:
-        return self.operations[self.request.getOperation()](self.request, mapkey)
+    def getController(self, mapkeys=[]) -> ConsultaController:
+        return self.operations[self.request.getOperation()](self.request, mapkeys)

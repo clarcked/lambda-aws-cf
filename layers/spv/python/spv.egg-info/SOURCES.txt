@@ -23,6 +23,7 @@ spv/generator/__init__.py
 spv/generator/generator.py
 spv/s3/__init__.py
 spv/s3/bucket.py
-spv/s3/jsonBucket.py
-spv/s3/pdfBucket.py
-spv/s3/s3.py
+spv/s3/jsonb.py
+spv/s3/pdfb.py
+spv/utils/__init__.py
+spv/utils/utils.py

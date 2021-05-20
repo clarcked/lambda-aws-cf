@@ -1,0 +1,16 @@
+{
+  "title": "Lorem ipsum",
+  "encoding": "utf-8",
+  "img": {
+    "logo": "http://localhost:80/logo.png"
+  },
+  "context": [
+    "detalle_cuenta",
+    "movimientos_generales",
+    "movimientos_totales",
+    "descripcion_debito_automatico",
+    "descripcion_leyenda",
+    "cuotas_a_vencer",
+    "aviso"
+  ]
+}

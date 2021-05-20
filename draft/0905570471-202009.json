@@ -1,0 +1,261 @@
+{
+  "meta": {
+    "version": "2021-05",
+    "marca": "visa",
+    "segmento": "gold"
+  },
+  "segmento": "027",
+  "detalle_cuenta": [
+    {
+      "datos_cuenta": {
+        "sucursal": "909",
+        "numero_cuenta": "0905570471",
+        "limite_de_compra": "24.000,00",
+        "limite_de_financiacion": "21.600,00",
+        "compra_en_cuotas": "24.000,00",
+        "grupo_afinidad": "0408",
+        "tipo_tarjeta_titular": "I",
+        "cartera": "3",
+        "modelo_de_liquidacion": "568",
+        "codigo_mensaje": "01",
+        "tipo_documento": "   ",
+        "numero_documento": "          ",
+        "forma_de_pago": "04"
+      },
+      "tasas": {
+        "tna_pesos": "43,000",
+        "tem_pesos": "3,534",
+        "tna_dolares": "0,000",
+        "tem_dolares": "0,000"
+      },
+      "fechas_cierres_vencimientos": {
+        "fecha_cierre_anterior": "13/08/20",
+        "fecha_vencimiento_anterior": "27/08/20",
+        "fecha_cierre_actual": "17/09/20",
+        "fecha_vencimiento_actual": "30/09/20",
+        "fecha_proximo_vencimiento": "28/10/20",
+        "fecha_cierre_proximo": "15/10/20"
+      }
+    },
+    {
+      "pago": {
+        "codigo_de_barras_cabecera": "09055704710279094",
+        "codigo_de_barra_pie": "09055704710279094",
+        "marca_cuadro_de_plan_v": "S",
+        "marca_talon": "*",
+        "producto_de_la_cuenta": "CR0104"
+      }
+    },
+    {
+      "domicilio": {
+        "denominacion_sucursal": "PERSONAL            ",
+        "denominacion_gaff": "PS NORMAL VISA      ",
+        "localidad": "LOS HORNOS          ",
+        "calle": "CALLE 124           ",
+        "puerta": "3124 ",
+        "piso": "  ",
+        "lod": "   ",
+        "cod_postal_cpa": "    1900",
+        "numero_de_lod": "    ",
+        "codigo_postal": "1900",
+        "codigo_geografico": "B3320",
+        "codigo_provincia": "B",
+        "codigo_localidad": "3320"
+      },
+      "datos_cuenta": {
+        "adelanto_efectivo": "300,00",
+        "pago_minimo_anterior": "5.658,00"
+      }
+    },
+    {
+      "saldos": {
+        "saldo_anterior_pesos": "16.470,78",
+        "saldo_anterior_dolares": "0,00",
+        "pago_minimo_pesos": "3.604,00",
+        "pago_minimo_dolares": "0,00",
+        "saldo_actual_pesos": "16.867,53",
+        "saldo_actual_dolares": "0,00",
+        "franquicia_proximo_periodo": "3.064,61"
+      },
+      "datos_cuenta": {
+        "numero_cuit": "27-39168149-5",
+        "numero_liquidacion": "000101107",
+        "titular_de_cuenta": "CALABRES FLORENCIA DANIELV",
+        "marca_resumen_virtual": " "
+      }
+    }
+  ],
+  "movimientos_generales": [
+    {
+      "detalles_movimientos_fin": [
+        {
+          "fecha_origen": "13/08/20",
+          "dato_validacion": "9999999999999999",
+          "descripcion": "DB IVA $  PLAN  V   006964 B. 18,92               ",
+          "importe_en_pesos": "3,97",
+          "importe_en_dolares": "0,00",
+          "codigo_operacion": "1422"
+        },
+        {
+          "fecha_origen": "17/09/20",
+          "dato_validacion": "9999999999999999",
+          "descripcion": "IMP DE SELLOS P/INT.FIN.  $                       ",
+          "importe_en_pesos": "12,69",
+          "importe_en_dolares": "0,00",
+          "codigo_operacion": "1031"
+        },
+        {
+          "fecha_origen": "17/09/20",
+          "dato_validacion": "9999999999999999",
+          "descripcion": "INTERESES FINANCIACION    $                       ",
+          "importe_en_pesos": "439,59",
+          "importe_en_dolares": "0,00",
+          "codigo_operacion": "1052"
+        },
+        {
+          "fecha_origen": "17/09/20",
+          "dato_validacion": "9999999999999999",
+          "descripcion": "DB IVA $ 21%                               439,59 ",
+          "importe_en_pesos": "92,31",
+          "importe_en_dolares": "0,00",
+          "codigo_operacion": "1100"
+        },
+        {
+          "fecha_origen": "17/09/20",
+          "dato_validacion": "9999999999999999",
+          "descripcion": "PERCEPCION RG 212/98 10,5%                 531,90 ",
+          "importe_en_pesos": "55,85",
+          "importe_en_dolares": "0,00",
+          "codigo_operacion": "1276"
+        }
+      ],
+      "detalles_movimientos_inicio": [
+        {
+          "fecha_origen": "28/08/20",
+          "dato_validacion": "0000000000000000",
+          "descripcion": "SU PAGO EN PESOS                                  ",
+          "importe_en_pesos": "-5.658,00",
+          "importe_en_dolares": "0,00",
+          "codigo_operacion": "2500"
+        }
+      ]
+    }
+  ],
+  "movimientos_totales": [
+    {
+      "tarjeta_numero": "3036",
+      "pesos": [
+        {
+          "fecha_origen": "18/04/20",
+          "numero_tc": "3036",
+          "detalle_de_transaccion": "SUSPENSION ELIGGI           C.05/06        ",
+          "importe_en_pesos": "1.704,01",
+          "importe_en_dolares": "0,00",
+          "comprobante": "235539",
+          "codigo_operacion": "0005"
+        },
+        {
+          "fecha_origen": "14/05/20",
+          "numero_tc": "3036",
+          "detalle_de_transaccion": "VISA  PLAN  V    2-09 (TNA  43,00)         ",
+          "importe_en_pesos": "60,22",
+          "importe_en_dolares": "0,00",
+          "comprobante": "006964",
+          "codigo_operacion": "1420"
+        },
+        {
+          "fecha_origen": "01/08/20",
+          "numero_tc": "3036",
+          "detalle_de_transaccion": "MERCADOPAGO*RANGERS         C.02/03        ",
+          "importe_en_pesos": "1.595,73",
+          "importe_en_dolares": "0,00",
+          "comprobante": "006602",
+          "codigo_operacion": "0005"
+        },
+        {
+          "fecha_origen": "30/08/20",
+          "numero_tc": "3036",
+          "detalle_de_transaccion": "WALMART LA PLATA     0587   C.01/03        ",
+          "importe_en_pesos": "983,95",
+          "importe_en_dolares": "0,00",
+          "comprobante": "004757",
+          "codigo_operacion": "0005"
+        },
+        {
+          "fecha_origen": "06/09/20",
+          "numero_tc": "3036",
+          "detalle_de_transaccion": "WALMART LA PLATA     0587   C.01/03        ",
+          "importe_en_pesos": "308,98",
+          "importe_en_dolares": "0,00",
+          "comprobante": "000975",
+          "codigo_operacion": "0005"
+        },
+        {
+          "fecha_origen": "06/09/20",
+          "numero_tc": "3036",
+          "detalle_de_transaccion": "WALMART LA PLATA     0587                  ",
+          "importe_en_pesos": "310,20",
+          "importe_en_dolares": "0,00",
+          "comprobante": "000977",
+          "codigo_operacion": "0005"
+        },
+        {
+          "fecha_origen": "06/09/20",
+          "numero_tc": "3036",
+          "detalle_de_transaccion": "WALMART LA PLATA     0595   C.01/04        ",
+          "importe_en_pesos": "487,25",
+          "importe_en_dolares": "0,00",
+          "comprobante": "000976",
+          "codigo_operacion": "0005"
+        }
+      ],
+      "moneda_extranjera": [],
+      "subtotales": [
+        {
+          "numero_tc": "3036",
+          "descripcion_subtotal_tc": "TARJETA 3036 Total Consumos de FLORENCIA CALABRES ",
+          "subtotal_importe_en_pesos": "5.450,34",
+          "subtotal_importe_dolares": "0,00"
+        }
+      ]
+    }
+  ],
+  "descripcion_debito_automatico": [
+    {
+      "descripcion": "DEBITAREMOS DE SU  C.A.00003524855001 LA SUMA DE  $      3604,00                  "
+    }
+  ],
+  "descripcion_leyenda": [
+    " Puntos obtenidos programa de bonificaci\u00f3n autom\u00e1tica de la comisi\u00f3n anual: Puntaje ant.=    76.464 - Puntaje del mes =  5.390  - Puntaje actual =   81.854 De conformidad con lo establecido en el art\u00edculo 23 inc. \u00f1 de la Ley 25.065, se encuentra prohibida la capitalizaci\u00f3n de intereses.",
+    " Los consumos en d\u00f3lares de sus tarjetas de cr\u00e9dito podr\u00e1n ser cancelados en esa moneda extranjera o en pesos. Si fueran cancelados en pesos, cuando el pago se realice un d\u00eda h\u00e1bil en horario bancario en ventanilla del Banco, en el homebanking del Banco (Onlinebanking) o en la Aplicaci\u00f3n Supervielle M\u00f3vil (Supervielle M\u00f3vil), ser\u00e1 aplicable el tipo de cambio vendedor del momento del pago. Si a la fecha de vencimiento la deuda en d\u00f3lares no hubiera sido cancelada, el Banco la convertir\u00e1 a pesos al tipo de cambio vendedor del d\u00eda del vencimiento del resumen. Si hubiera pactado el d\u00e9bito autom\u00e1tico del resumen de la tarjeta, o utiliza otros canales de pago no asimilables a los descriptos en el p\u00e1rrafo anterior o realice el pago en Onlinebanking o Supervielle M\u00f3vil fuera del horario bancario, aplicar\u00e1 el tipo de cambio vendedor del cierre del mismo d\u00eda h\u00e1bil del pago o el d\u00eda h\u00e1bil inmediato anterior cuando el pago se efect\u00fae un d\u00eda inh\u00e1bil o en d\u00edas h\u00e1biles en un horario anterior al de apertura de mercado de cambio.",
+    " Si Ud. opt\u00f3 por rescindir un Paquete de Productos de Banco Supervielle S.A., encontrar\u00e1 informados en el presente resumen los cargos y comisiones correspondientes a los productos y servicios individuales que se encuentran vigentes, los cuales rigen a partir del mes siguiente al que Ud. solicit\u00f3 la rescisi\u00f3n del Paquete de Productos en cuesti\u00f3n.",
+    " El monto de IVA discriminado no puede computarse como cr\u00e9dito fiscal.",
+    " La tasa de financiaci\u00f3n (variable mensual) del pr\u00f3ximo per\u00edodo aplicable tanto a saldos financiados como a los servicios de Adelantos en Efectivo, Adelantos en Cuotas, Plan V y Cuotaphone no ser\u00e1 superior al 43,00% Tasa Nominal Anual (TNA), 3,53% Tasa Efectiva Mensual (TEM), 52,59% Tasa Efectiva Anual (TEA), 66,44% Costo Financiero Total de Tasa Efectiva Anual (CFT TEA) en pesos.",
+    " Informamos a Ud. que resultar\u00e1n de aplicaci\u00f3n sobre su Tarjeta de Cr\u00e9dito las siguientes condiciones: A partir del mes de Noviembre de 2012 los saldos en d\u00f3lares estadounidenses NO cancelados a Fecha de Vencimiento del Resumen ser\u00e1n convertidos a pesos al tipo de cambio vendedor vigente en Banco Supervielle S.A a la fecha de Vencimiento del Resumen y ser\u00e1n financiados en pesos a las tasas vigentes. En caso de no estar de acuerdo, podr\u00e1 rescindir sin cargo el presente contrato de Tarjeta de Cr\u00e9dito.",
+    " Si la operaci\u00f3n se acord\u00f3 en cuotas, el monto indicado en este resumen (y en el importe del cup\u00f3n correspondiente) incluye los intereses por financiaci\u00f3n conforme a la tasa que el comercio inform\u00f3 al efectuarse la transacci\u00f3n.",
+    " Orientaci\u00f3n al Consumidor Prov. de Bs.As. 0800-222-9042.",
+    " Los intereses de financiaci\u00f3n se calculan desde el Vto. de su resumen anterior.",
+    " Abone su resumen de cuenta a trav\u00e9s de www.pagomiscuentas.com, www.pagoslink.com.ar, home banking, las redes de cajeros autom\u00e1ticos Banelco/ Link y/o adhiri\u00e9ndose al d\u00e9bito en cuenta bancaria del saldo total.",
+    ""
+  ],
+  "cuotas_a_vencer": {
+    "meses": [
+      "Octubre/20",
+      "Noviembre/20",
+      "Diciembre/20",
+      "Enero/21",
+      "Febrero/21",
+      "Marzo/21"
+    ],
+    "valores": [
+      "$5.140,12",
+      "$1.840,38",
+      "$547,47",
+      "$60,22",
+      "$60,22",
+      "$60,22"
+    ],
+    "mensaje": "A partir de Abril/21 $60,22 "
+  },
+  "aviso": " SU BANCO LE AVISA;EL SERVICIO DE ALERTAS Y MENSAJES TIENE NUEVOS MENSAJES PARA UD.AHORA PODRA RECIBIR,POR E-MAIL O MENSAJE DE TEXTO,LOS AVISOS DE VTO Y RECH DE P DIRECTO.ADEMAS,SI PAGA SU TARJ.POR DEBITO AUT., RECIBIRA LA INFORMACION DE CTA.Y T DE SDO.A DEBITAR.ADHIERASE GRATIS E INFORMESE SOBRE TODAS LAS ALERTAS DISPONIBLES LLAMANDO DESDE CAP.FED.AL 4959-4959 O DESDE EL INTERIOR AL 0810-333-4959. *USTED DISPONE DE 30 DIAS DESDE LA RECEPCION PARA CUESTIONAR ESTE RESUMEN*"
+}

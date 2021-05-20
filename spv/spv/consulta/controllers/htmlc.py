@@ -9,14 +9,20 @@ class HTMLController(JSONController):
         super().__init__(request, mapkeys)
         self.setContentType("text/html")
         self.actions = {
-            "getResumenHTML": self.resolveHTML
+            "getResumenHTML": self.resolveHTML,
+            "getLiquidacionHTML": self.resolveHTML,
         }
 
     def resolveHTML(self):
         data = self.resolveJsonFromBucket()
+
+        version = data['version']
         code = data['detalle_cuenta'][1]["pago"]["codigo_de_barras_cabecera"]
         data["barcode"] = Generator.genCode39(code)
-        return View(self.request, context=data).render()
+
+        view = View(self.request, context=data)
+        view.setVersion(version)
+        return view.render()
 
     def onResolve(self):
         data = self.actions[self.request.getOperation()]()

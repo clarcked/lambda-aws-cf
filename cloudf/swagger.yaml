@@ -1,57 +1,450 @@
-swagger: "2.0"
+swagger: '2.0'
 info:
-    description: "Consulta de resumenes de tarjeta de credito."
-    title: "API Consulta resumenes de tarjeta"
-    version: "1.0.0"
+  version: "1.0"
+  title: "API Consulta resumenes de tarjeta"
+  description: "Consulta de resumenes de tarjeta de credito"
 schemes:
-    - "https"
+  - "https"
 paths:
-    /cuentas-credito/{id}/resumenes/{fecha}:
-        post:
-            tags:
-                - Liquidaciones
-            summary: Consulta de liquidacion por ID CC
-            description: Consulta de la liquidacion de una Cuenta-Credito filtrada por el ID de la Cuenta-Credito y Año y mes.
-            operationId: getResumenPorFecha
-            produces:
-                - "application/json"
-            parameters:
-                - name: "id"
-                  in: "path"
-                  description: "ID to return"
-                  required: true
-                  type: "integer"
-                  format: "int64"
-                - name: "fecha"
-                  in: "path"
-                  description: "IDto return"
-                  required: true
-                  type: "integer"
-                  format: "int64"
-            responses:
-                "200":
-                    description: "Successful operation"
-                    schema:
-                        $ref: "#/definitions/LiquidacionVigenteResource"
-                "400":
-                    description: "Invalid ID supplied"
-                "404":
-                    description: "Item not found"
-                "500":
-                    description: Internal Server Error
-            x-amazon-apigateway-integration:
-                uri:
-                    Fn::Sub: "arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${spvPoCConsultaResumen.Arn}/invocations"
-                httpMethod: "POST"
-                type: "aws_proxy"
+
+  /cuentas-credito/{id}/liquidaciones:
+    get:
+      tags:
+        - Liquidaciones
+      summary: Consulta de liquidaciones de una cuenta
+      description: Consulta de las liquidaciones de una Cuenta-Credito filtrada por el ID de la Cuenta-Credito. Devolviendo la totalidad de los Resumenes disponible.
+      operationId: getLiquidacionesPorCuenta
+      produces:
+        - application/json
+      parameters:
+        - name: X-Aplicacion
+          in: header
+          description: X-Aplicacion
+          required: true
+          type: string
+        - name: X-Canal
+          in: header
+          description: X-Canal
+          required: true
+          type: string
+        - name: X-Usuario
+          in: header
+          description: X-Usuario
+          required: true
+          type: string
+        - name: id
+          in: path
+          description: id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/LiquidacionesVigentesResource'
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/EstandarError'
+        '404':
+          description: Not Found
+          schema:
+            $ref: '#/definitions/EstandarError'
+        '422':
+          description: Unprocessable Entity
+          schema:
+            $ref: '#/definitions/EstandarError'
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/EstandarError'
+      x-amazon-apigateway-integration:
+        uri:
+          Fn::Sub: "arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${spvPoCConsultaResumen.Arn}/invocations"
+        httpMethod: "POST"
+        type: "aws_proxy"
+        
+
+  /cuentas-credito/{id}/liquidaciones/{fecha}:
+    get:
+      tags:
+        - Liquidaciones
+      summary: Consulta de liquidacion por ID CC
+      description: Consulta de la liquidacion de una Cuenta-Credito filtrada por el ID de la Cuenta-Credito y Año y mes.
+      operationId: getLiquidacionPorFecha
+      produces:
+        - application/json
+      parameters:
+        - name: X-Aplicacion
+          in: header
+          description: X-Aplicacion
+          required: true
+          type: string
+        - name: X-Canal
+          in: header
+          description: X-Canal
+          required: true
+          type: string
+        - name: X-Usuario
+          in: header
+          description: X-Usuario
+          required: true
+          type: string
+        - name: id
+          in: path
+          description: id
+          required: true
+          type: string
+        - name: fecha
+          in: path
+          description: aaaamm
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/LiquidacionVigenteResource'
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/EstandarError'
+        '404':
+          description: Not Found
+          schema:
+            $ref: '#/definitions/EstandarError'
+        '422':
+          description: Unprocessable Entity
+          schema:
+            $ref: '#/definitions/EstandarError'
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/EstandarError'
+      x-amazon-apigateway-integration:
+        uri:
+          Fn::Sub: "arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${spvPoCConsultaResumen.Arn}/invocations"
+        httpMethod: "POST"
+        type: "aws_proxy"
+
+  /cuentas-credito/{id}/liquidaciones/{fecha}/pdf:
+    get:
+      tags:
+        - Liquidaciones
+      summary: Consulta de liquidacion por ID CC
+      description: Entrega un PDF de la liquidacion de una Cuenta-Credito filtrada por el ID de la Cuenta-Credito y Año y mes.
+      operationId: getLiquidacionPDF
+      produces:
+        - application/pdf
+      parameters:
+        - name: X-Aplicacion
+          in: header
+          description: X-Aplicacion
+          required: true
+          type: string
+        - name: X-Canal
+          in: header
+          description: X-Canal
+          required: true
+          type: string
+        - name: X-Usuario
+          in: header
+          description: X-Usuario
+          required: true
+          type: string
+        - name: id
+          in: path
+          description: id
+          required: true
+          type: string
+        - name: fecha
+          in: path
+          description: aaaamm
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: string
+            format: byte
+        '404':
+          description: El id no existe
+          schema:
+            $ref: '#/definitions/EstandarError'
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/EstandarError'
+        '422':
+          description: Unprocessable Entity
+          schema:
+            $ref: '#/definitions/EstandarError'
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/EstandarError'
+      x-amazon-apigateway-integration:
+        uri:
+          Fn::Sub: "arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${spvPoCConsultaResumen.Arn}/invocations"
+        httpMethod: "POST"
+        type: "aws_proxy"
+
+  /cuentas-credito/{id}/liquidaciones/{fecha}/html:
+    get:
+      tags:
+        - Liquidaciones
+      summary: Consulta de liquidacion por ID CC
+      description: Entrega un HTML de la liquidacion de una Cuenta-Credito filtrada por el ID de la Cuenta-Credito y Año y mes.
+      operationId: getLiquidacionHTML
+      produces:
+        - text/html
+      parameters:
+        - name: X-Aplicacion
+          in: header
+          description: X-Aplicacion
+          required: true
+          type: string
+        - name: X-Canal
+          in: header
+          description: X-Canal
+          required: true
+          type: string
+        - name: X-Usuario
+          in: header
+          description: X-Usuario
+          required: true
+          type: string
+        - name: id
+          in: path
+          description: id
+          required: true
+          type: string
+        - name: fecha
+          in: path
+          description: aaaamm
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: string
+            format: byte
+        '404':
+          description: El id no existe
+          schema:
+            $ref: '#/definitions/EstandarError'
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/EstandarError'
+        '422':
+          description: Unprocessable Entity
+          schema:
+            $ref: '#/definitions/EstandarError'
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/EstandarError'
+      x-amazon-apigateway-integration:
+        uri:
+          Fn::Sub: "arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${spvPoCConsultaResumen.Arn}/invocations"
+        httpMethod: "POST"
+        type: "aws_proxy"
+
+  /cuentas-credito/{id}/liquidaciones/{fecha}/url:
+    get:
+      tags:
+        - Liquidaciones
+      summary: Consulta de liquidacion por ID CC
+      description: Entrega la URL con una presigned key de la liquidacion de una Cuenta-Credito filtrada por el ID de la Cuenta-Credito y Año y mes.
+      operationId: getLiquidacionURL
+      produces:
+        - application/json
+      parameters:
+        - name: X-Aplicacion
+          in: header
+          description: X-Aplicacion
+          required: true
+          type: string
+        - name: X-Canal
+          in: header
+          description: X-Canal
+          required: true
+          type: string
+        - name: X-Usuario
+          in: header
+          description: X-Usuario
+          required: true
+          type: string
+        - name: id
+          in: path
+          description: id
+          required: true
+          type: string
+        - name: fecha
+          in: path
+          description: aaaamm
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: string
+            description: url de S3 de la liquidacion
+        '404':
+          description: El id no existe
+          schema:
+            $ref: '#/definitions/EstandarError'
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/EstandarError'
+        '422':
+          description: Unprocessable Entity
+          schema:
+            $ref: '#/definitions/EstandarError'
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/EstandarError'
+      x-amazon-apigateway-integration:
+        uri:
+          Fn::Sub: "arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${spvPoCConsultaResumen.Arn}/invocations"
+        httpMethod: "POST"
+        type: "aws_proxy"
+
 definitions:
-    LiquidacionVigenteResource:
-        type: object
-        properties:
-            fecha_cierre:
-                type: string
-                description: Fecha de cierre
-            fecha_vencimiento:
-                type: string
-                description: Fecha de vencimiento
-        title: LiquidacionVigenteResource
+
+  LiquidacionesVigentesResource:
+    type: array
+    items:
+      $ref: '#/definitions/DatosBasicosLiquidacion'
+    title: "Resumen De tarjeta"  
+  DatosBasicosLiquidacion:
+    type: object
+    properties:
+      fecha_cierre_actual:
+        type: string
+        description: fecha de cierre Actual
+        #example: 13/08/20
+      fecha_vencimiento_actual:
+        type: string
+        description: Fecha de vencimiento Actual
+        #example: 27/08/20
+      Link_resumen:
+        type: string
+        #example: http://miresumen.pdf
+        description: Link para obtener resumen
+      fecha:
+        type: string
+        #example: 202008
+        description: identificador de resumen para acceder por consulta de liquidacion por cuenta-Fecha
+
+  DetalleEstandarError:
+    type: object
+    properties:
+      codigo:
+        type: string
+      detalle:
+        type: string
+      origen:
+        type: string
+      spvtrack_id:
+        type: string
+      titulo:
+        type: string
+    title: DetalleEstandarError
+
+
+  EstandarError:
+    type: object
+    properties:
+      codigo:
+        type: integer
+        format: int32
+      detalle:
+        type: string
+      errores:
+        type: array
+        items:
+          $ref: '#/definitions/DetalleEstandarError'
+      estado:
+        type: string
+      tipo:
+        type: string
+    title: EstandarError
+
+
+  LiquidacionVigenteResource:
+    type: object
+    properties:
+      numero_cuenta:
+        type: string
+        description: Numero de Cuenta
+      cartera:
+        type: string
+        description: Numero de Cartera
+      titular_de_cuenta:
+        type: string
+        description: Nombre del Titular
+      marca_resumen_virtual:
+        type: string
+        description: Adhesion a e-Resumen
+      fecha_cierre_actual:
+        type: string
+        description: Fecha de cierre Actual
+        #example: 17/09/20
+      fecha_vencimiento_actual:
+        type: string
+        description: Fecha de vencimiento Actual
+        #example: 30/09/20
+      fecha_cierre_anterior:
+        type: string
+        description: Fecha de cierre Anterior
+        #example: 13/08/20
+      fecha_vencimiento_anterior:
+        type: string
+        description: Fecha de vencimiento Anterior
+        #example: 27/08/20
+      fecha_proximo_vencimiento:
+        type: string
+        description: Fecha Proximo vencimiento
+        #example: 28/10/20
+      fecha_cierre_proximo:
+        type: string
+        description: Fecha Cierre Proximo
+        #example: 15/10/20
+      saldo_anterior_pesos:
+        type: number
+        format: double
+        description: Saldo Anterior en Pesos
+        #example: 16.470,78
+      saldo_anterior_dolares:
+        type: number
+        format: double
+        description: Saldo Anterior en Dolares
+        #example: 0,00
+      pago_minimo_pesos:
+        type: number
+        format: double
+        description: Pago Minimo Anterior
+        #example: 3.604,00
+      pago_minimo_dolares:
+        type: number
+        format: double
+        description: Pago Minimo Dolares
+        #example: 0,00
+      saldo_actual_pesos:
+        type: number
+        format: double
+        description: Saldo Actual en Pesos
+        #example: 16.867,53
+      saldo_actual_dolares:
+        type: number
+        format: double
+        description: Saldo Actual en Dolares
+        #example: 0,00
+    title: LiquidacionVigenteResource

@@ -9,7 +9,8 @@ class PDFController(HTMLController):
         super().__init__(request, mapkeys)
         self.setContentType("application/pdf")
         self.actions = {
-            "getResumenPDF": self.resolvePDF
+            "getResumenPDF": self.resolvePDF,
+            "getLiquidacionPDF": self.resolvePDF,
         }
 
     def resolvePDF(self):
