@@ -17,7 +17,7 @@ class Generator:
         try:
             io = BytesIO()
             code = re.sub(' +', ' ', code)
-            Code39(code, writer=ImageWriter(format="png")).write(io, {
+            Code39(code, add_checksum=False, writer=ImageWriter(format="png")).write(io, {
                 "module_width": 0.05,
                 "module_height": 4,
                 "font_size": 6,

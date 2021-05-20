@@ -10,4 +10,4 @@ set BUCKET=%AWS_ACCOUNT%-s3-%ENV%-resumenes-deploys
 @REM set BUCKET="spvresumen"
 
 @REM sam validate --template "%cd%/cloudf/template.yaml" --profile %AWS_PROFILE%  
-sam build --template "%cd%/cloudf/template.yaml" --profile %AWS_PROFILE% && sam deploy --debug --template "%cd%/.aws-sam/build/template.yaml" --stack-name %STACK% --s3-bucket=%BUCKET% --profile %AWS_PROFILE% --capabilities CAPABILITY_NAMED_IAM --parameter-overrides Environment=%ENV% Account=%AWS_ACCOUNT% --tags Environment=%ENV% ProductName=%PRODUCT% Owner=%OWNER% CostCenter=%COST_CENTER%
+call bin/layer && sam build --template "%cd%/cloudf/template.yaml" --profile %AWS_PROFILE% && sam deploy --debug --template "%cd%/.aws-sam/build/template.yaml" --stack-name %STACK% --s3-bucket=%BUCKET% --profile %AWS_PROFILE% --capabilities CAPABILITY_NAMED_IAM --parameter-overrides Environment=%ENV% Account=%AWS_ACCOUNT% --tags Environment=%ENV% ProductName=%PRODUCT% Owner=%OWNER% CostCenter=%COST_CENTER%

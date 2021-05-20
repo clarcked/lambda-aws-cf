@@ -29,7 +29,7 @@ class JSONController(ConsultaController):
         for item in items:
             resumen = dict(item["resumen"])
             resumen = hashmap(keys, resumen)
-            resumen.update({"Link_resumen": self.pdfbucket.sign("descarga.pdf"), "fecha": item["aaaamm"]})
+            resumen.update({"Link_resumen": self.pdfbucket.sign("descarga.pdf"), "fecha": str(item["aaaamm"])})
                 # "cuenta_credito": item["cuenta_credito"]
             resumenes.append(resumen)
         return resumenes
