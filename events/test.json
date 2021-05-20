@@ -7,6 +7,6 @@
     "fecha": "202009"
   },
   "requestContext": {
-    "operationName": "getResumenPorFecha"
+    "operationName": "getLiquidacionesPorCuenta"
   }
 }

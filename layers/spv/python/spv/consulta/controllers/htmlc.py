@@ -16,12 +16,12 @@ class HTMLController(JSONController):
     def resolveHTML(self):
         data = self.resolveJsonFromBucket()
 
-        version = data['version']
+        # version = data['version']
         code = data['detalle_cuenta'][1]["pago"]["codigo_de_barras_cabecera"]
         data["barcode"] = Generator.genCode39(code)
 
         view = View(self.request, context=data)
-        view.setVersion(version)
+        # view.setVersion(version)
         return view.render()
 
     def onResolve(self):
