@@ -8,12 +8,16 @@ class View:
         self.name = "template.html"
         self.context = context
         self.rendered = ""
+        self.version = ""
 
     def setContext(self, context):
         self.context = context
 
     def setName(self, name):
         self.name = name
+
+    def setVersion(self, version):
+        self.version = version
 
     def render(self) -> str:
         file = open(self.name)

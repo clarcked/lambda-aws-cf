@@ -7,13 +7,30 @@ class ConsultaController:
         self.mapkeys = mapkeys
         self.actions = {}
         self.response = {
-            "statusCode": 200,
+            "statusCode": 400,
             "headers": {
-                "Content-Type": "text/html"
+                "Content-Type": "application/json"
             },
-            "body": "",
-            "isBase64Encoded": False
+            "body": {
+                "codigo": 0,
+                "detalle": "",
+                "errores": [
+                    {
+                        "codigo": "",
+                        "detalle": "",
+                        "origen": "",
+                        "spvtrack_id": "",
+                        "titulo": ""
+                    }
+                ],
+                "estado": "",
+                "tipo": ""
+            },
+            "isBase64Encoded": False,
         }
+
+    def setStatus(self, status=200):
+        self.response["statusCode"] = status
 
     def setHeader(self, key, value):
         self.response["headers"][key] = value
@@ -32,4 +49,5 @@ class ConsultaController:
 
     def getResponse(self):
         self.onResolve()
+        self.setStatus(200)
         return self.response
