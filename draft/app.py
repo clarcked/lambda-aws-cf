@@ -45,13 +45,23 @@ if "__main__" == __name__:
     # keys = ["fecha_cierre_actual",
     #         "fecha_vencimiento_actual", "fecha", "Link_resumen"]
 
+    # keys = ["fecha_cierre_actual",
+    #         "fecha_vencimiento_actual", "fecha", "Link_resumen"]
+    # resumenes = []
+    # for item in items:
+    #     resumen = dict(item["resumen"])
+    #     resumen = hashmap(keys, resumen)
+    #     resumen.update({"fecha": item["aaaamm"], "cuenta_credito": item["cuenta_credito"]})
+    #     resumenes.append(resumen)
+
     keys = ["fecha_cierre_actual",
             "fecha_vencimiento_actual", "fecha", "Link_resumen"]
     resumenes = []
     for item in items:
         resumen = dict(item["resumen"])
         resumen = hashmap(keys, resumen)
-        resumen.update({"fecha": item["aaaamm"], "cuenta_credito": item["cuenta_credito"]})
+        resumen.update({"Link_resumen": "", "fecha": str(item["aaaamm"])})
+        # "cuenta_credito": item["cuenta_credito"]
         resumenes.append(resumen)
 
     print(resumenes)
