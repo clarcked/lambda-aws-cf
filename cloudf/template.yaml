@@ -47,7 +47,7 @@ Resources:
             Environment:
                 Variables:
                     FONTCONFIG_PATH: /opt/bin/fonts
-                    LD_LIBRARY_PATH: /opt/bin/lib
+                    LD_LIBRARY_PATH: lib
                     WKHTML2PDF_PATH: /opt/bin/wkhtmltopdf
                     S3_BUCKET_JSON: edn-s3-predev-bucket-resumenes-json
                     S3_BUCKET_PDF: edn-s3-predev-bucket-resumenes-pdf
