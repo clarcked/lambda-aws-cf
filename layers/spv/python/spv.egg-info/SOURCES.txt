@@ -19,6 +19,8 @@ spv/consulta/controllers/pdfc.py
 spv/consulta/controllers/urlc.py
 spv/dynamo/__init__.py
 spv/dynamo/dynamo.py
+spv/event/__init__.py
+spv/event/s3ev.py
 spv/generator/__init__.py
 spv/generator/generator.py
 spv/s3/__init__.py

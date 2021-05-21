@@ -16,8 +16,9 @@ class PDFController(HTMLController):
 
     def resolvePDF(self):
         self.isBase64Encoded()
-        html = self.resolveHTML()
-        return Generator.genPDF(html, os.environ["WKHTML2PDF_PATH"])
+        data = self.pdfbucket.data64("descarga.pdf")
+        print(data)
+        return data
 
     def onResolve(self):
         data = self.actions[self.request.getOperation()]()

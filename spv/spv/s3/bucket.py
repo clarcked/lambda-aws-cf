@@ -16,8 +16,8 @@ class Bucket:
         data = self.client.get_object(Bucket=self.name, Key=key)
         return data['Body'].read()
 
-    def write(self, key, data):
-        pass
+    def put(self, key, data):
+        self.client.put_object(Body=data, Bucket=self.name, Key=key)
 
     def remove(self, key):
         pass

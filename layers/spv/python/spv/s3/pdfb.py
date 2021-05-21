@@ -1,5 +1,7 @@
-from spv.s3.bucket import Bucket
+import base64
 import os
+
+from spv.s3.bucket import Bucket
 
 
 class PDFBucket(Bucket):
@@ -8,4 +10,6 @@ class PDFBucket(Bucket):
         self.name = os.environ['S3_BUCKET_PDF']
 
     def data64(self, key):
-        pass
+        data = self.read(key)
+        b64 = base64.b64encode(data)
+        return b64.decode("utf-8")

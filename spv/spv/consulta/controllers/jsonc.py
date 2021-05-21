@@ -24,26 +24,19 @@ class JSONController(ConsultaController):
 
     def getResumenPorCuenta(self):
         items = self.dynamo.query_id(int(self.request.getParam("id")))
-        keys = ["fecha_cierre_actual",
-                "fecha_vencimiento_actual", "fecha", "Link_resumen"]
         resumenes = []
         for item in items:
-            resumen = dict(item["resumen"])
-            resumen = hashmap(keys, resumen)
-            resumen.update({"Link_resumen": self.pdfbucket.sign(
-                "descarga.pdf"), "fecha": str(item["aaaamm"])})
+            resumen = dict(items[0]["resumen"])
+            resumen.update({"Link_resumen": self.pdfbucket.sign("descarga.pdf"), "fecha": str(item["aaaamm"])})
             resumenes.append(resumen)
         return json.dumps(resumenes)
 
     def getResumenPorFecha(self):
-        items = self.dynamo.query_fecha(
-            int(self.request.getParam("id")), int(self.request.getParam("fecha")))
-
-        resumen = dict(items[0]["resumen"])
-        # resumen.update({"fecha": item["aaaamm"], "cuenta_credito": item["cuenta_credito"]})
-        return json.dumps(resumen)
+        data = self.resolveJsonFromBucket()
+        return json.dumps(data)
 
     def resolveJsonFromBucket(self):
+        print(self.request.jsonKey())
         data = self.jsonbucket.get(self.request.jsonKey())
         return hashmap(self.mapkeys, data)
 
