@@ -46,7 +46,7 @@ Resources:
                             ApiKeyRequired: true # no te olvides de ponerlo True
             Environment:
                 Variables:
-                    FONTCONFIG_PATH: /opt/bin/fonts
+                    FONTCONFIG_PATH: fonts
                     LD_LIBRARY_PATH: lib
                     WKHTML2PDF_PATH: /opt/bin/wkhtmltopdf
                     S3_BUCKET_JSON: edn-s3-predev-bucket-resumenes-json
@@ -58,7 +58,6 @@ Resources:
             Layers:
                 - !Ref SpvLayer
                 - !Ref ConsultaLayer
-                - !Ref WkhtmlLayer
     ConsultaLayer:
         Type: AWS::Serverless::LayerVersion
         Properties:
@@ -73,14 +72,6 @@ Resources:
             LayerName: spv_layer
             Description: Dependencies para la spv tarjetas
             ContentUri: ../layers/spv
-            CompatibleRuntimes:
-                - python3.8
-    WkhtmlLayer:
-        Type: AWS::Serverless::LayerVersion
-        Properties:
-            LayerName: wkhtml_layer
-            Description: Dependencies para la generar pdf
-            ContentUri: ../layers/wkhtml
             CompatibleRuntimes:
                 - python3.8
     ConfigLambdaPermission:

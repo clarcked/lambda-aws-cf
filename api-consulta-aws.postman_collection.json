@@ -1,0 +1,148 @@
+{
+	"info": {
+		"_postman_id": "2c29fdb2-4bf6-4413-91ab-e1548b72e744",
+		"name": "api-consulta-aws",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "getLiquidacionesPorCuenta",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://9uq3266wnc.execute-api.us-east-1.amazonaws.com/stage-demo/cuentas-credito/93002529/liquidaciones",
+					"protocol": "https",
+					"host": [
+						"9uq3266wnc",
+						"execute-api",
+						"us-east-1",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"stage-demo",
+						"cuentas-credito",
+						"93002529",
+						"liquidaciones"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getLiquidacionPorFecha",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://9uq3266wnc.execute-api.us-east-1.amazonaws.com/stage-demo/cuentas-credito/93002529/liquidaciones/202009",
+					"protocol": "https",
+					"host": [
+						"9uq3266wnc",
+						"execute-api",
+						"us-east-1",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"stage-demo",
+						"cuentas-credito",
+						"93002529",
+						"liquidaciones",
+						"202009"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getLiquidacionURL",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://9uq3266wnc.execute-api.us-east-1.amazonaws.com/stage-demo/cuentas-credito/0845540196/liquidaciones/202009/url",
+					"protocol": "https",
+					"host": [
+						"9uq3266wnc",
+						"execute-api",
+						"us-east-1",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"stage-demo",
+						"cuentas-credito",
+						"0845540196",
+						"liquidaciones",
+						"202009",
+						"url"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getLiquidacionHTML",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://9uq3266wnc.execute-api.us-east-1.amazonaws.com/stage-demo/cuentas-credito/0845540196/liquidaciones/202009/html",
+					"protocol": "https",
+					"host": [
+						"9uq3266wnc",
+						"execute-api",
+						"us-east-1",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"stage-demo",
+						"cuentas-credito",
+						"0845540196",
+						"liquidaciones",
+						"202009",
+						"html"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getLiquidacionPDF",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "file",
+					"file": {}
+				},
+				"url": {
+					"raw": "https://9uq3266wnc.execute-api.us-east-1.amazonaws.com/stage-demo/cuentas-credito/93002529/liquidaciones/202009/pdf",
+					"protocol": "https",
+					"host": [
+						"9uq3266wnc",
+						"execute-api",
+						"us-east-1",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"stage-demo",
+						"cuentas-credito",
+						"93002529",
+						"liquidaciones",
+						"202009",
+						"pdf"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

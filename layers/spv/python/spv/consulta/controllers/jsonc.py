@@ -39,6 +39,7 @@ class JSONController(ConsultaController):
     def getResumenPorFecha(self):
         items = self.dynamo.query_fecha(
             int(self.request.getParam("id")), int(self.request.getParam("fecha")))
+        resumen = {}
         for item in items:
             resumen = dict(item["resumen"])
             # resumen.update({"fecha": item["aaaamm"], "cuenta_credito": item["cuenta_credito"]})
