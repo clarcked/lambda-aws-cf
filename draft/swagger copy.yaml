@@ -43,15 +43,20 @@ paths:
                         $ref: "#/definitions/LiquidacionesVigentesResource"
                 "400":
                     description: Bad Request
+                    schema:
+                        $ref: "#/definitions/EstandarError"
                 "404":
                     description: Not Found
-
+                    schema:
+                        $ref: "#/definitions/EstandarError"
                 "422":
                     description: Unprocessable Entity
-
+                    schema:
+                        $ref: "#/definitions/EstandarError"
                 "500":
                     description: Internal Server Error
-
+                    schema:
+                        $ref: "#/definitions/EstandarError"
             x-amazon-apigateway-integration:
                 uri:
                     Fn::Sub: "arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${spvPoCConsultaResumen.Arn}/invocations"
@@ -71,17 +76,17 @@ paths:
                 - name: X-Aplicacion
                   in: header
                   description: X-Aplicacion
-                  required: false
+                  required: true
                   type: string
                 - name: X-Canal
                   in: header
                   description: X-Canal
-                  required: false
+                  required: true
                   type: string
                 - name: X-Usuario
                   in: header
                   description: X-Usuario
-                  required: false
+                  required: true
                   type: string
                 - name: id
                   in: path
@@ -97,19 +102,23 @@ paths:
                 "200":
                     description: OK
                     schema:
-                        $ref: "#/definitions/LiquidacionVigentesResource"
+                        $ref: "#/definitions/LiquidacionVigenteResource"
                 "400":
                     description: Bad Request
-
+                    schema:
+                        $ref: "#/definitions/EstandarError"
                 "404":
                     description: Not Found
-
+                    schema:
+                        $ref: "#/definitions/EstandarError"
                 "422":
                     description: Unprocessable Entity
-
+                    schema:
+                        $ref: "#/definitions/EstandarError"
                 "500":
                     description: Internal Server Error
-
+                    schema:
+                        $ref: "#/definitions/EstandarError"
             x-amazon-apigateway-integration:
                 uri:
                     Fn::Sub: "arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${spvPoCConsultaResumen.Arn}/invocations"
@@ -129,17 +138,17 @@ paths:
                 - name: X-Aplicacion
                   in: header
                   description: X-Aplicacion
-                  required: false
+                  required: true
                   type: string
                 - name: X-Canal
                   in: header
                   description: X-Canal
-                  required: false
+                  required: true
                   type: string
                 - name: X-Usuario
                   in: header
                   description: X-Usuario
-                  required: false
+                  required: true
                   type: string
                 - name: id
                   in: path
@@ -159,16 +168,20 @@ paths:
                         format: byte
                 "404":
                     description: El id no existe
-
+                    schema:
+                        $ref: "#/definitions/EstandarError"
                 "400":
                     description: Bad Request
-
+                    schema:
+                        $ref: "#/definitions/EstandarError"
                 "422":
                     description: Unprocessable Entity
-
+                    schema:
+                        $ref: "#/definitions/EstandarError"
                 "500":
                     description: Internal Server Error
-
+                    schema:
+                        $ref: "#/definitions/EstandarError"
             x-amazon-apigateway-integration:
                 uri:
                     Fn::Sub: "arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${spvPoCConsultaResumen.Arn}/invocations"
@@ -188,17 +201,17 @@ paths:
                 - name: X-Aplicacion
                   in: header
                   description: X-Aplicacion
-                  required: false
+                  required: true
                   type: string
                 - name: X-Canal
                   in: header
                   description: X-Canal
-                  required: false
+                  required: true
                   type: string
                 - name: X-Usuario
                   in: header
                   description: X-Usuario
-                  required: false
+                  required: true
                   type: string
                 - name: id
                   in: path
@@ -218,16 +231,20 @@ paths:
                         format: byte
                 "404":
                     description: El id no existe
-
+                    schema:
+                        $ref: "#/definitions/EstandarError"
                 "400":
                     description: Bad Request
-
+                    schema:
+                        $ref: "#/definitions/EstandarError"
                 "422":
                     description: Unprocessable Entity
-
+                    schema:
+                        $ref: "#/definitions/EstandarError"
                 "500":
                     description: Internal Server Error
-
+                    schema:
+                        $ref: "#/definitions/EstandarError"
             x-amazon-apigateway-integration:
                 uri:
                     Fn::Sub: "arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${spvPoCConsultaResumen.Arn}/invocations"
@@ -247,17 +264,17 @@ paths:
                 - name: X-Aplicacion
                   in: header
                   description: X-Aplicacion
-                  required: false
+                  required: true
                   type: string
                 - name: X-Canal
                   in: header
                   description: X-Canal
-                  required: false
+                  required: true
                   type: string
                 - name: X-Usuario
                   in: header
                   description: X-Usuario
-                  required: false
+                  required: true
                   type: string
                 - name: id
                   in: path
@@ -277,16 +294,20 @@ paths:
                         description: url de S3 de la liquidacion
                 "404":
                     description: El id no existe
-
+                    schema:
+                        $ref: "#/definitions/EstandarError"
                 "400":
                     description: Bad Request
-
+                    schema:
+                        $ref: "#/definitions/EstandarError"
                 "422":
                     description: Unprocessable Entity
-
+                    schema:
+                        $ref: "#/definitions/EstandarError"
                 "500":
                     description: Internal Server Error
-
+                    schema:
+                        $ref: "#/definitions/EstandarError"
             x-amazon-apigateway-integration:
                 uri:
                     Fn::Sub: "arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${spvPoCConsultaResumen.Arn}/invocations"
@@ -296,11 +317,6 @@ paths:
 definitions:
     LiquidacionesVigentesResource:
         type: array
-        items:
-            $ref: "#/definitions/DatosBasicosLiquidacion"
-        title: "Resumen De tarjeta"
-    LiquidacionVigentesResource:
-        type: object
         items:
             $ref: "#/definitions/DatosBasicosLiquidacion"
         title: "Resumen De tarjeta"
@@ -315,3 +331,115 @@ definitions:
                 type: string
                 description: Fecha de vencimiento Actual
                 #example: 27/08/20
+            Link_resumen:
+                type: string
+                #example: http://miresumen.pdf
+                description: Link para obtener resumen
+            fecha:
+                type: string
+                #example: 202008
+                description: identificador de resumen para acceder por consulta de liquidacion por cuenta-Fecha
+
+    DetalleEstandarError:
+        type: object
+        properties:
+            codigo:
+                type: string
+            detalle:
+                type: string
+            origen:
+                type: string
+            spvtrack_id:
+                type: string
+            titulo:
+                type: string
+        title: DetalleEstandarError
+
+    EstandarError:
+        type: object
+        properties:
+            codigo:
+                type: integer
+                format: int32
+            detalle:
+                type: string
+            errores:
+                type: array
+                items:
+                    $ref: "#/definitions/DetalleEstandarError"
+            estado:
+                type: string
+            tipo:
+                type: string
+        title: EstandarError
+
+    LiquidacionVigenteResource:
+        type: object
+        properties:
+            numero_cuenta:
+                type: string
+                description: Numero de Cuenta
+            cartera:
+                type: string
+                description: Numero de Cartera
+            titular_de_cuenta:
+                type: string
+                description: Nombre del Titular
+            marca_resumen_virtual:
+                type: string
+                description: Adhesion a e-Resumen
+            fecha_cierre_actual:
+                type: string
+                description: Fecha de cierre Actual
+                #example: 17/09/20
+            fecha_vencimiento_actual:
+                type: string
+                description: Fecha de vencimiento Actual
+                #example: 30/09/20
+            fecha_cierre_anterior:
+                type: string
+                description: Fecha de cierre Anterior
+                #example: 13/08/20
+            fecha_vencimiento_anterior:
+                type: string
+                description: Fecha de vencimiento Anterior
+                #example: 27/08/20
+            fecha_proximo_vencimiento:
+                type: string
+                description: Fecha Proximo vencimiento
+                #example: 28/10/20
+            fecha_cierre_proximo:
+                type: string
+                description: Fecha Cierre Proximo
+                #example: 15/10/20
+            saldo_anterior_pesos:
+                type: number
+                format: double
+                description: Saldo Anterior en Pesos
+                #example: 16.470,78
+            saldo_anterior_dolares:
+                type: number
+                format: double
+                description: Saldo Anterior en Dolares
+                #example: 0,00
+            pago_minimo_pesos:
+                type: number
+                format: double
+                description: Pago Minimo Anterior
+                #example: 3.604,00
+            pago_minimo_dolares:
+                type: number
+                format: double
+                description: Pago Minimo Dolares
+                #example: 0,00
+            saldo_actual_pesos:
+                type: number
+                format: double
+                description: Saldo Actual en Pesos
+                #example: 16.867,53
+            saldo_actual_dolares:
+                type: number
+                format: double
+                description: Saldo Actual en Dolares
+                #example: 0,00
+        title: LiquidacionVigenteResource

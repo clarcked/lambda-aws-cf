@@ -1,3 +1,4 @@
+import json
 from spv.utils.utils import hashmap
 
 items = [
@@ -64,4 +65,5 @@ if "__main__" == __name__:
         # "cuenta_credito": item["cuenta_credito"]
         resumenes.append(resumen)
 
-    print(resumenes)
+    resumenes = json.dumps(resumenes)
+    print(type(resumenes))
