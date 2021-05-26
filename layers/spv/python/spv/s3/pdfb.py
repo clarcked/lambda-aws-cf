@@ -9,6 +9,10 @@ class PDFBucket(Bucket):
         super().__init__()
         self.name = os.environ['S3_BUCKET_PDF']
 
+    def create(self, key, data):
+        if not self.has_file(key):
+            self.put(key, data)
+
     def data64(self, key):
         data = self.read(key)
         b64 = base64.b64encode(data)

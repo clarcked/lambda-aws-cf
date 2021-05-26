@@ -3,10 +3,10 @@
     "operationName": "getResumenPorFecha"
   },
   "pathParameters": {
-    "id": "0845540196",
+    "id": "00930025295",
     "fecha": "202009"
   },
   "requestContext": {
-    "operationName": "getLiquidacionesPorCuenta"
+    "operationName": "getLiquidacionPorFecha"
   }
 }
